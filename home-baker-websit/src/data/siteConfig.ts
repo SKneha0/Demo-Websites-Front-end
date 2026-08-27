@@ -3,7 +3,7 @@ import { SiteConfig } from "@/types";
 export const siteConfig: SiteConfig = {
   bakeryName: "Sweet Delights Bakery",
   tagline: "Homemade Cakes, Baked with Love",
-  url: "https://sweetdelightsbakery.com",
+  url: "https://cake-bakers.vercel.app",
   description: "Delicious homemade cakes and cupcakes in Karachi, custom made with love. Order via WhatsApp!",
 
   whatsappNumber: "923108360091",

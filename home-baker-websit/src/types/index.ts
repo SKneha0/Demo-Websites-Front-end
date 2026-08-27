@@ -55,6 +55,8 @@ export interface SocialLinks {
 export interface SiteConfig {
   bakeryName: string;
   tagline: string;
+  url: string;
+  description: string;
   whatsappNumber: string;   // format: "923001234567" (no + or spaces)
   phoneNumber?: string;
   email?: string;
