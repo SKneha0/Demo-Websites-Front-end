@@ -1,0 +1,96 @@
+@import "tailwindcss";
+
+@theme {
+  --color-flour: #FDF3F0;
+  --color-cocoa: #5C3A3E;
+  --color-crust: #3D1F2B;
+  --color-berry: #B76E79;
+  --color-caramel: #D4A373;
+  --color-caramel-dark: #B8860B;
+
+  --font-display: "Playfair Display", serif;
+  --font-body: "Inter", sans-serif;
+}
+
+@layer base {
+  :root {
+    color-scheme: light;
+  }
+
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    @apply bg-gradient-to-b from-[#FBE4E4] via-flour to-[#FBEEDD] text-cocoa font-body antialiased;
+  }
+
+  h1, h2, h3, h4 {
+    @apply font-display text-crust;
+  }
+
+  ::selection {
+    @apply bg-berry/20 text-crust;
+  }
+
+  :focus-visible {
+    outline: 2px solid #B76E79;
+    outline-offset: 3px;
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    *, *::before, *::after {
+      animation-duration: 0.01ms !important;
+      animation-iteration-count: 1 !important;
+      transition-duration: 0.01ms !important;
+      scroll-behavior: auto !important;
+    }
+  }
+}
+
+@layer utilities {
+  .container-wide {
+    @apply mx-auto max-w-[1240px] px-5 sm:px-8;
+  }
+
+  .eyebrow {
+    @apply inline-flex items-center gap-2 text-xs sm:text-sm uppercase tracking-[0.22em] text-caramel-dark font-semibold;
+  }
+
+  .btn-primary {
+    @apply inline-flex items-center justify-center gap-2 rounded-sm bg-gradient-to-r from-berry to-[#9B5A66] px-6 py-3.5 text-sm sm:text-base font-semibold text-flour shadow-md transition-transform duration-200 hover:-translate-y-0.5 hover:from-[#9B5A66] hover:to-berry active:translate-y-0;
+  }
+
+  .btn-secondary {
+    @apply inline-flex items-center justify-center gap-2 rounded-sm border-2 border-caramel-dark/40 bg-transparent px-6 py-3.5 text-sm sm:text-base font-semibold text-crust transition-colors duration-200 hover:border-caramel-dark hover:bg-caramel/[0.08];
+  }
+
+  .btn-whatsapp {
+    @apply inline-flex items-center justify-center gap-2 rounded-sm bg-[#25D366] px-6 py-3.5 text-sm sm:text-base font-semibold text-[#0b1d13] shadow-md transition-transform duration-200 hover:-translate-y-0.5 active:translate-y-0;
+  }
+
+  .scallop-bottom {
+    position: relative;
+  }
+
+  .scallop-bottom::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: -1px;
+    height: 22px;
+    background-image: radial-gradient(circle at 10px 0, transparent 11px, var(--scallop-color, #FDF3F0) 11.5px);
+    background-size: 22px 22px;
+    background-repeat: repeat-x;
+  }
+
+  .card-tilt {
+    transition: transform 0.35s cubic-bezier(0.22, 1, 0.36, 1), box-shadow 0.35s ease;
+  }
+
+  .card-tilt:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 12px 24px -8px rgba(183, 110, 121, 0.25);
+  }
+}
